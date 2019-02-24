@@ -41,7 +41,7 @@ class get_movie_index():
             "up":0,
         }
         url = "http://jx.api.163ren.com/api.php"
-        res = requests.post(url  = url,headers = self.head,data =data ).content
+        res = requests.post(url  = url,headers = self.head,data =data ).text
         return json.loads(res) # json.loads(res) dict 类型
     def get_m3u8_file(self):
         self.get_m3u8()
@@ -66,9 +66,9 @@ class get_movie_index():
         # print(renren_url)
         real_url = renren_url+"/1000k/hls/index.m3u8"
         return real_url
-# if __name__ == '__main__':
-#     s = get_movie_index("https://v.qq.com/x/cover/fgqtuu38z91hfyw.html")
-#     s.run()
+if __name__ == '__main__':
+    s = get_movie_index("https://v.qq.com/x/cover/fgqtuu38z91hfyw.html")
+    s.run()
 #     s.if_not_success()
 
     # url = "https://cn2.zuidadianying.com"
