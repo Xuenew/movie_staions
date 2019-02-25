@@ -24,9 +24,9 @@ class serch_movies_new_big():
 }
 
         self.data = {
-            "adparam": ""
+            "adparam": "pf=in&ad_type=LD%7CKB%7CPVL&pf_ex=pc&url=https%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Ffgqtuu38z91hfyw%2Fh0027agjqb1.html&refer=https%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Ffgqtuu38z91hfyw%2Fh0027agjqb1.html&ty=web&plugin=1.0.0&v=3.5.57&coverid=fgqtuu38z91hfyw&vid=h0027agjqb1&pt=&flowid=cd7021b1f780f9822a630a4ea6863993_10201&vptag=www_baidu_com&pu=-1&chid=0&adaptor=2&dtype=1&live=0&resp_type=json&guid=c3ed01ec03a21050db27858ad6cd8f20&req_type=1&from=0&appversion=1.0.139&uid=241119669&tkn=47730947ee6695f300000000f0802b89a3468aa32c62&lt=qq&platform=10201&opid=96A774A2ACC02EBD09BFB659E5419832&atkn=17E8253E83CDCF818F97F93068F55F23&appid=101483052&tpid=1&rfid=11bb3527365ee03b120933b36539c21b_1550995743"
             ,"buid": "vinfoad"
-         ,   "vinfoparam": "charge=1&defaultfmt=auto&otype=ojson&guid=c3ed01ec03a21050db27858ad6cd8f20&platform=10201&sdtfrom=v1010&defnpayver=1&appVer=3.5.57&host=v.qq.com&ehost=https://v.qq.com/x/cover/6sj522tgplnw8no.html&refer=v.qq.com&sphttps=1&tm=1550987972&spwm=4&logintoken=%7B%22main_login%22%3A%22wx%22%2C%22openid%22%3A%22ox8XOvie1TjyS7CvgWw4vKcr0jDM%22%2C%22appid%22%3A%22wx5ed58254bc0d6b7f%22%2C%22access_token%22%3A%2218_k1LQbnBi5if5-OPDCTi7AP2B2xNyNxZK0MhU1l692sE38PGkJohJdegmque2YTBgvO6n8bKADEt6TArP_GhadA%22%2C%22vuserid%22%3A%221363393582%22%2C%22vusession%22%3A%22d9cd3df1d13f9a48cb624e03eda0%22%7D&unid=7d523775a45e11e89d19a0429186d00a&vid={}&defn=&fhdswitch=0&show1080p=1&isHLS=1&dtype=3&sphls=2&spgzip=1&dlver=2&drm=32&hdcp=0&spau=1&spaudio=15&defsrc=1&encryptVer=8.1&cKey={}&fp2p=1&spadseg=1".format(self.vid,self.ck)
+            ,"vinfoparam":"charge=1&defaultfmt=auto&otype=ojson&guid=c3ed01ec03a21050db27858ad6cd8f20&flowid=cd7021b1f780f9822a630a4ea6863993_10201&platform=10201&sdtfrom=v1010&defnpayver=1&appVer=3.5.57&host=v.qq.com&ehost=https%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Ffgqtuu38z91hfyw%2Fh0027agjqb1.html&refer=v.qq.com&sphttps=1&tm=1551083974&spwm=4&logintoken=%7B%22main_login%22%3A%22qq%22%2C%22openid%22%3A%2296A774A2ACC02EBD09BFB659E5419832%22%2C%22appid%22%3A%22101483052%22%2C%22access_token%22%3A%2217E8253E83CDCF818F97F93068F55F23%22%2C%22vuserid%22%3A%22241119669%22%2C%22vusession%22%3A%2247730947ee6695f300000000f0802b89a3468aa32c62%22%7D&unid=7d523775a45e11e89d19a0429186d00a&vid={}&defn=&fhdswitch=0&show1080p=1&isHLS=1&dtype=3&sphls=2&spgzip=1&dlver=2&drm=32&hdcp=0&spau=1&spaudio=15&defsrc=1&encryptVer=8.1&cKey={}&fp2p=1&spadseg=1".format(self.vid,self.ck)
 
         }
         # self.proxies = {'http': '114.249.116.88:9000',}  ,proxies = self.proxies
@@ -34,7 +34,7 @@ class serch_movies_new_big():
         res = requests.get(url="https://vd.l.qq.com/proxyhttp",headers=self.head, data=self.data).text
         # print(json.loads(res)["vinfo"])
         null = ""
-        # print(res)
+        print(res)
         # print(type(json.loads(res)))
         x=json.loads(json.loads(res)["vinfo"])
         # print(x)
@@ -43,10 +43,11 @@ class serch_movies_new_big():
         # print(x["vl"]["vi"][0]["ul"]["ui"][0]["hls"]["pt"])
         # print(json.loads(res)["vinfo"]["vl"]["vi"][0]["ul"]["ui"][0]["url"])
         # print(json.loads(res)["vinfo"]["vl"]["vi"][0]["ul"]["ui"][0]["hls"]["pt"])
+        # print(x)
         play_url = x["vl"]["vi"][0]["ul"]["ui"][0]["url"] + x["vl"]["vi"][0]["ul"]["ui"][0]["hls"]["pt"]
         # print(play_url)
         return play_url
         # return x
 if __name__ == '__main__':
-    s = serch_movies_new_big(ckey="5978479087DA7CB437AEF8020262BB7C73B9775E68150310CFBAD09C15C0FCE7C69E988D2FDC98571CBED165D8D2E2F81C5A9ADF194EE1CD12DA5CC57887B6C5CC2C003A01BAB0F8E58BD25393326BCD5AFF39B90F75A14D77909771D954AC8D42580E3FC0D0904800BE2B4BB134E2E05EE9F1C1CA832C1CA6783867E88E3F823D20AF1C6797CA054FD06DAD22B589F740862FBF6734B2922402DBEE452EAA493A6E50658906A0EE67099DFC87776E22EB476C4ED49725017BF156BC5F1F076558408CD32B8E0880E6365593D43AD33C31FAFCF7D07E055DF223A367173A643316A4006E6DC3E8DBDDE80935F35AFDDD",vid="h0027agjqb1")
+    s = serch_movies_new_big(ckey="0284615FC2D67889B822380F9B078E47A35354F764767C4CA3AE8255DB3FF795AAAFA601FF23696F65071FA4E7F21749DFA5A62B9EBC193809E1D9B34343CBCB59AFC14FCF5B512C9823CB27DEA615FDF9A33D8082628E30456E218D1A15B871EEB843617DF7AC32B05B3FACB5DA36C7327C509CB23FB91C0296356E3C0519E3AE739FBC8D22E319BDF8C7EB6A5FA9CB2A8B7D451CF4AC56203D9404A413C440B9413ADE57C9003202D9C6728EF7095CCDDABB194FAA86545F3E1F6FB333E5643B8FADED05B2A024B148EAF936ACA47BA0D38A0812394450EF1351058768B305",vid="h0027agjqb1")
     s.get_paly_url()
